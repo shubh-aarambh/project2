@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emergency Locations & Weather</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBBShBTM8cSiyCp4sxEKkGNt85nEQUwR3E&libraries=places"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Emergency Flight, Locations & Weather</h1>
+            <p class="subtitle">Find City , Flights & weather information</p>
+            <div class="example-codes">
+                <p>Example IATA codes: DEL (Delhi), BOM (Mumbai), BLR (Bangalore), MAA (Chennai)</p>
+            </div>
+        </header>
+
+        <main>
+            <section class="search-section">
+                <div class="search-container">
+                    <div class="input-group">
+                        <input type="text" id="location" placeholder="Enter City Name" class="search-input">
+                        <button id="searchBtn" class="btn primary">Search</button>
+                    </div>
+                </div>
+            </section>
+
+            <section class="flight-search-section">
+                <h2>Search Emergency Flights</h2>
+                <div class="search-container">
+                    <div class="input-group">
+                        <div class="input-wrapper">
+                            <label for="from">From (IATA Code)</label>
+                            <input type="text" id="from" placeholder="e.g., DEL" maxlength="3">
+                        </div>
+                        <div class="input-wrapper">
+                            <label for="to">To (IATA Code)</label>
+                            <input type="text" id="to" placeholder="e.g., BOM" maxlength="3">
+                        </div>
+                        <button id="searchFlightsBtn" class="btn secondary">Find Flights</button>
+                    </div>
+                    <div id="flightLoader" class="loader hidden"></div>
+                    <div id="flights" class="results-container"></div>
+                </div>
+            </section>
+
+            <section class="weather-section">
+                <h2>Weather Information</h2>
+                <div id="weather" class="weather-container"></div>
+            </section>
+
+            <section class="map-section">
+                <h2>Nearby Hotels & Hospitals</h2>
+                <div class="legend">
+                    <div class="legend-item">
+                        <span class="marker hospital"></span> Hospitals
+                    </div>
+                    <div class="legend-item">
+                        <span class="marker hotel"></span> Hotels
+                    </div>
+                </div>
+                <div id="map"></div>
+            </section>
+        </main>
+
+        <footer>
+            <p>© 2024 Emergency Locations & Weather. All rights reserved.</p>
+        </footer>
+    </div>
+    <div id="places"></div>
+
+    <script src="app.js"></script>
+</body>
+</html>
